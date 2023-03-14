@@ -171,7 +171,7 @@ class CalendarStyle {
     this.cellPadding = EdgeInsets.zero,
     this.cellAlignment = Alignment.center,
     this.markersOffset = const PositionedOffset(),
-    this.rangeHighlightColor = const Color(0xFFBBDDFF),
+    this.rangeHighlightColor = const Color(0xFFF4F2FF),
     this.markerDecoration = const BoxDecoration(
       color: const Color(0xFF263238),
     ),
@@ -196,14 +196,16 @@ class CalendarStyle {
       fontSize: 16,
     ),
     this.rangeStartDecoration = const BoxDecoration(
-      color: const Color(0xFF6699FF),
+      color: const Color(0xFF6913D8),
+      borderRadius: BorderRadius.all(Radius.circular(5)),
     ),
     this.rangeEndTextStyle = const TextStyle(
       color: const Color(0xFFFFFFFF),
       fontSize: 16,
     ),
     this.rangeEndDecoration = const BoxDecoration(
-      color: const Color(0xFF6699FF),
+      color: const Color(0xFF6913D8),
+      borderRadius: BorderRadius.all(Radius.circular(5)),
     ),
     this.withinRangeTextStyle = const TextStyle(),
     this.withinRangeDecoration = const BoxDecoration(),

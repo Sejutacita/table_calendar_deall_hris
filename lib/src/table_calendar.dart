@@ -629,17 +629,19 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
 
         if (rangeHighlight == null) {
           if (isWithinRange) {
-            rangeHighlight = Center(
-              child: Container(
-                margin: EdgeInsetsDirectional.only(
-                  start: isRangeStart ? constraints.maxWidth * 0.5 : 0.0,
-                  end: isRangeEnd ? constraints.maxWidth * 0.5 : 0.0,
+            rangeHighlight = Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Spacer(),
+                Container(
+                  margin: EdgeInsetsDirectional.only(
+                    start: isRangeStart ? constraints.maxWidth * 0.5 : 0.0,
+                    end: isRangeEnd ? constraints.maxWidth * 0.5 : 0.0,
+                  ),
+                  height: widget.calendarStyle.sizeDecoration,
+                  color: widget.calendarStyle.rangeHighlightColor,
                 ),
-                height:
-                    (shorterSide - widget.calendarStyle.cellMargin.vertical) *
-                        widget.calendarStyle.rangeHighlightScale,
-                color: widget.calendarStyle.rangeHighlightColor,
-              ),
+              ],
             );
           }
         }
