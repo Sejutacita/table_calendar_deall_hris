@@ -71,6 +71,7 @@ class TableCalendarBase extends StatefulWidget {
     this.availableCalendarFormats = const {
       CalendarFormat.month: 'Month',
       CalendarFormat.twoWeeks: '2 weeks',
+      CalendarFormat.sixWeeks: '6 weeks',
       CalendarFormat.week: 'Week',
     },
     this.onVerticalSwipe,
@@ -285,6 +286,8 @@ class _TableCalendarBaseState extends State<TableCalendarBase> {
         return _getMonthCount(startDay, focusedDay);
       case CalendarFormat.twoWeeks:
         return _getTwoWeekCount(startDay, focusedDay);
+      case CalendarFormat.sixWeeks:
+        return _getSixWeekCount(startDay, focusedDay);
       case CalendarFormat.week:
         return _getWeekCount(startDay, focusedDay);
       default:
@@ -307,9 +310,15 @@ class _TableCalendarBaseState extends State<TableCalendarBase> {
     return last.difference(_firstDayOfWeek(first)).inDays ~/ 14;
   }
 
+  int _getSixWeekCount(DateTime first, DateTime last) {
+    return last.difference(_firstDayOfWeek(first)).inDays ~/ 49;
+  }
+
   int _getRowCount(CalendarFormat format, DateTime focusedDay) {
     if (format == CalendarFormat.twoWeeks) {
       return 2;
+    } else if (format == CalendarFormat.sixWeeks) {
+      return 6;
     } else if (format == CalendarFormat.week) {
       return 1;
     } else if (widget.sixWeekMonthsEnforced) {

@@ -226,6 +226,7 @@ class TableCalendar<T> extends StatefulWidget {
     this.availableCalendarFormats = const {
       CalendarFormat.month: 'Month',
       CalendarFormat.twoWeeks: '2 weeks',
+      CalendarFormat.sixWeeks: '6 weeks',
       CalendarFormat.week: 'Week',
     },
     this.headerVisible = true,
@@ -342,7 +343,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
       var id = formats.indexOf(widget.calendarFormat);
 
       // Order of CalendarFormats must be from biggest to smallest,
-      // e.g.: [month, twoWeeks, week]
+      // e.g.: [month, twoWeeks, sixWeeks, week]
       if (isSwipeUp) {
         id = min(formats.length - 1, id + 1);
       } else {
