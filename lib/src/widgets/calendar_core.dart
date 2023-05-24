@@ -36,6 +36,7 @@ class CalendarCore extends StatelessWidget {
   final PageController? pageController;
   final ScrollPhysics? scrollPhysics;
   final _OnCalendarPageChanged onPageChanged;
+  final void Function(int)? rowAmountCallback;
 
   const CalendarCore({
     Key? key,
@@ -61,6 +62,7 @@ class CalendarCore extends StatelessWidget {
     this.tableBorder,
     this.tablePadding,
     this.scrollPhysics,
+    this.rowAmountCallback,
   })  : assert(!dowVisible || (dowHeight != null && dowBuilder != null)),
         super(key: key);
 
@@ -74,7 +76,7 @@ class CalendarCore extends StatelessWidget {
         final baseDay = _getBaseDay(calendarFormat, index);
         final visibleRange = _getVisibleRange(calendarFormat, baseDay);
         final visibleDays = _daysInRange(visibleRange.start, visibleRange.end);
-
+        rowAmountCallback?.call(visibleDays.length ~/ 7);
         final actualDowHeight = dowVisible ? dowHeight! : 0.0;
         final constrainedRowHeight = constraints.hasBoundedHeight
             ? (constraints.maxHeight - actualDowHeight) /
