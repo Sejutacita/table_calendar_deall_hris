@@ -218,6 +218,7 @@ class TableCalendar<T> extends StatefulWidget {
     required DateTime firstDay,
     required DateTime lastDay,
     DateTime? currentDay,
+    bool isAllowEmptyCurrentDay = false,
     this.locale,
     this.rangeStartDay,
     this.rangeEndDay,
@@ -279,7 +280,8 @@ class TableCalendar<T> extends StatefulWidget {
         focusedDay = normalizeDate(focusedDay),
         firstDay = normalizeDate(firstDay),
         lastDay = normalizeDate(lastDay),
-        currentDay = currentDay ?? DateTime.now(),
+        currentDay =
+            currentDay ?? (isAllowEmptyCurrentDay ? null : DateTime.now()),
         super(key: key);
 
   @override
