@@ -20,6 +20,8 @@ class CellContent extends StatelessWidget {
   final bool isOutside;
   final bool isDisabled;
   final bool isHoliday;
+  final bool isLeave;
+  final bool isBirthday;
   final bool isWeekend;
   final CalendarStyle calendarStyle;
   final CalendarBuilders calendarBuilders;
@@ -39,6 +41,8 @@ class CellContent extends StatelessWidget {
     required this.isOutside,
     required this.isDisabled,
     required this.isHoliday,
+    required this.isLeave,
+    required this.isBirthday,
     required this.isWeekend,
     this.locale,
   }) : super(key: key);
@@ -164,6 +168,28 @@ class CellContent extends StatelessWidget {
             decoration: calendarStyle.outsideDecoration,
             alignment: alignment,
             child: Text(text, style: calendarStyle.outsideTextStyle),
+          );
+    } else if (isLeave) {
+      cell = calendarBuilders.leaveBuilder?.call(context, day, focusedDay) ??
+          AnimatedContainer(
+            width: size,
+            height: size,
+            duration: duration,
+            margin: margin,
+            padding: padding,
+            alignment: alignment,
+            child: Text(text, style: calendarStyle.leaveTextStyle),
+          );
+    } else if (isBirthday) {
+      cell = calendarBuilders.birthdayBuilder?.call(context, day, focusedDay) ??
+          AnimatedContainer(
+            width: size,
+            height: size,
+            duration: duration,
+            margin: margin,
+            padding: padding,
+            alignment: alignment,
+            child: Text(text, style: calendarStyle.birthdayTextStyle),
           );
     } else {
       cell = calendarBuilders.defaultBuilder?.call(context, day, focusedDay) ??

@@ -127,6 +127,18 @@ class CalendarStyle {
   /// Decoration for day cells that are marked as holidays by `holidayPredicate`.
   final Decoration holidayDecoration;
 
+  /// TextStyle for day cells that are marked as leaves by `leavePredicate`.
+  final TextStyle leaveTextStyle;
+
+  /// Decoration for day cells that are marked as birthdays by `birthDayPredicate`.
+  final TextStyle birthdayTextStyle;
+
+  /// Decoration for day cells that are marked as leaves by `leave`.
+  final Decoration leaveDecoration;
+
+  /// Decoration for day cells that are marked as birthdays by `birthDayPredicate`.
+  final Decoration birthdayDecoration;
+
   /// TextStyle for day cells that match `weekendDay` list.
   final TextStyle weekendTextStyle;
 
@@ -215,6 +227,19 @@ class CalendarStyle {
     this.disabledDecoration = const BoxDecoration(),
     this.holidayTextStyle = const TextStyle(color: const Color(0xFF5C6BC0)),
     this.holidayDecoration = const BoxDecoration(
+      border: const Border.fromBorderSide(
+        const BorderSide(color: const Color(0xFF9FA8DA), width: 1.4),
+      ),
+    ),
+    this.leaveTextStyle = const TextStyle(color: const Color(0xff6913D8)),
+    this.birthdayTextStyle =
+        const TextStyle(color: Color.fromARGB(255, 5, 134, 112)),
+    this.leaveDecoration = const BoxDecoration(
+      border: const Border.fromBorderSide(
+        const BorderSide(color: const Color(0xFF9FA8DA), width: 1.4),
+      ),
+    ),
+    this.birthdayDecoration = const BoxDecoration(
       border: const Border.fromBorderSide(
         const BorderSide(color: const Color(0xFF9FA8DA), width: 1.4),
       ),

@@ -181,6 +181,12 @@ class TableCalendar<T> extends StatefulWidget {
   /// Function deciding whether given day is treated as a holiday.
   final bool Function(DateTime day)? holidayPredicate;
 
+  /// Function deciding whether given day is treated as a leave.
+  final bool Function(DateTime day)? leavePredicate;
+
+  /// Function deciding whether given day is treated as a birthday.
+  final bool Function(DateTime day)? birthdayPredicate;
+
   /// Called whenever a day range gets selected.
   final OnRangeSelected? onRangeSelected;
 
@@ -257,6 +263,8 @@ class TableCalendar<T> extends StatefulWidget {
     this.enabledDayPredicate,
     this.selectedDayPredicate,
     this.holidayPredicate,
+    this.leavePredicate,
+    this.birthdayPredicate,
     this.onRangeSelected,
     this.onDaySelected,
     this.onDayLongPressed,
@@ -670,6 +678,8 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
           isDisabled: isDisabled,
           isWeekend: isWeekend,
           isHoliday: widget.holidayPredicate?.call(day) ?? false,
+          isLeave: widget.leavePredicate?.call(day) ?? false,
+          isBirthday: widget.birthdayPredicate?.call(day) ?? false,
           locale: widget.locale,
         );
 

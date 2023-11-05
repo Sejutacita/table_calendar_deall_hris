@@ -20,6 +20,8 @@ Widget setupTestWidget(
   bool isWithinRange = false,
   bool isHoliday = false,
   bool isTodayHighlighted = true,
+  bool isLeave = false,
+  bool isBirthDay = false,
 }) {
   final calendarStyle = CalendarStyle();
 
@@ -40,6 +42,8 @@ Widget setupTestWidget(
       isWithinRange: isWithinRange,
       isHoliday: isHoliday,
       isTodayHighlighted: isTodayHighlighted,
+      isLeave: isLeave,
+      isBirthday: isBirthDay,
     ),
   );
 }

@@ -55,6 +55,12 @@ class CalendarBuilders<T> {
   /// Custom builder for day cells that are marked as holidays by `holidayPredicate`.
   final FocusedDayBuilder? holidayBuilder;
 
+  /// Custom builder for day cells that are marked as leave or birthday by `leavePredicate`.
+  final FocusedDayBuilder? leaveBuilder;
+
+  /// Custom builder for day cells that are marked as leave or birthday by `birthdayPredicate`.
+  final FocusedDayBuilder? birthdayBuilder;
+
   /// Custom builder for day cells that do not match any other builder.
   final FocusedDayBuilder? defaultBuilder;
 
@@ -93,6 +99,8 @@ class CalendarBuilders<T> {
     this.outsideBuilder,
     this.disabledBuilder,
     this.holidayBuilder,
+    this.leaveBuilder,
+    this.birthdayBuilder,
     this.defaultBuilder,
     this.rangeHighlightBuilder,
     this.singleMarkerBuilder,

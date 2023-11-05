@@ -151,6 +151,14 @@ class _TableComplexExampleState extends State<TableComplexExample> {
               // Every 20th day of the month will be treated as a holiday
               return day.day == 20;
             },
+            leavePredicate: (day) {
+              // Every 10th day of the month will be treated as a leave or birthday
+              return day.day == 10;
+            },
+            birthdayPredicate: (day) {
+              // Every 15th day of the month will be treated as a leave or birthday
+              return day.day == 15;
+            },
             onDaySelected: _onDaySelected,
             onRangeSelected: _onRangeSelected,
             onCalendarCreated: (controller) => _pageController = controller,
